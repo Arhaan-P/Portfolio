@@ -175,93 +175,118 @@ export default function Portfolio() {
 
   // Project Card Component with micro-case study layout
   const ProjectCard = ({ project }: { project: Project }) => (
-    <Card className="group hover-lift border-0 shadow-lg bg-card/50 backdrop-blur-sm">
-      <div className="relative overflow-hidden rounded-t-lg">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={400}
-          height={250}
-          className="w-full h-75 object-cover object-center group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJcklyyjqTzSlT54b6bk+h0R//2Q=="
-        />
-        <div className="absolute top-4 right-4">
-          <Badge 
-            className={`${
-              project.status === 'Ongoing' ? 'bg-success text-success-foreground' : 
-              project.status === 'Completed' ? 'bg-primary text-primary-foreground' : 
-              'bg-warning text-warning-foreground'
-            }`}
-          >
-            {project.status}
-          </Badge>
-        </div>
+  <Card className="group hover-lift border-0 shadow-lg bg-card/50 backdrop-blur-sm">
+    <div className="relative overflow-hidden rounded-t-lg">
+      <Image
+        src={project.image}
+        alt={project.title}
+        width={400}
+        height={250}
+        className="w-full h-75 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJcklyyjqTzSlT54b6bk+h0R//2Q=="
+      />
+      <div className="absolute top-4 right-4">
+        <Badge
+          className={`${
+            project.status === "Ongoing"
+              ? "bg-success text-success-foreground"
+              : project.status === "Completed"
+              ? "bg-primary text-primary-foreground"
+              : "bg-warning text-warning-foreground"
+          }`}
+        >
+          {project.status}
+        </Badge>
       </div>
-      <CardHeader>
-        <CardTitle className="text-xl text-foreground flex items-center justify-between">
-          {project.title}
-          <div className="flex space-x-2">
-            {project.github && (
-              <Link 
-                href={project.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label={`View ${project.title} on GitHub`}
-              >
-                <Github size={20} />
-              </Link>
-            )}
-            <ExternalLink size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
-          </div>
-        </CardTitle>
-        <CardDescription>{project.longDescription}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        {/* Micro-case study sections */}
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-sm text-destructive mb-2 flex items-center">
-              <Target size={16} className="mr-2" />
-              Problem
-            </h4>
-            <p className="text-sm text-muted-foreground">{project.problem}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-sm text-primary mb-2 flex items-center">
-              <Lightbulb size={16} className="mr-2" />
-              Approach
-            </h4>
-            <p className="text-sm text-muted-foreground">{project.approach}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-sm text-success mb-2 flex items-center">
-              <CheckCircle size={16} className="mr-2" />
-              Outcome
-            </h4>
-            <p className="text-sm text-muted-foreground">{project.outcome}</p>
-          </div>
+    </div>
+    <CardHeader>
+      <CardTitle className="text-xl text-foreground flex items-center justify-between">
+        {/* Make the title clickable only for projects with a link */}
+        {project.link ? (
+          <Link
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors"
+            aria-label={`Visit ${project.title} website`}
+          >
+            {project.title}
+          </Link>
+        ) : (
+          <span>{project.title}</span>
+        )}
+        <div className="flex space-x-2">
+          {project.github && (
+            <Link
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label={`View ${project.title} on GitHub`}
+            >
+              <Github size={20} />
+            </Link>
+          )}
+          {project.link && (
+            <Link
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground group-hover:text-primary transition-colors"
+              aria-label={`Visit ${project.title} website`}
+            >
+              <ExternalLink size={20} />
+            </Link>
+          )}
+        </div>
+      </CardTitle>
+      <CardDescription>{project.longDescription}</CardDescription>
+    </CardHeader>
+    <CardContent>
+      {/* Micro-case study sections */}
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-semibold text-sm text-destructive mb-2 flex items-center">
+            <Target size={16} className="mr-2" />
+            Problem
+          </h4>
+          <p className="text-sm text-muted-foreground">{project.problem}</p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-4">
-          {project.technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
+        <div>
+          <h4 className="font-semibold text-sm text-primary mb-2 flex items-center">
+            <Lightbulb size={16} className="mr-2" />
+            Approach
+          </h4>
+          <p className="text-sm text-muted-foreground">{project.approach}</p>
         </div>
-        
-        <div className="flex items-center text-sm text-success font-medium mt-4">
-          <Trophy size={16} className="mr-2" />
-          {project.metrics}
+
+        <div>
+          <h4 className="font-semibold text-sm text-success mb-2 flex items-center">
+            <CheckCircle size={16} className="mr-2" />
+            Outcome
+          </h4>
+          <p className="text-sm text-muted-foreground">{project.outcome}</p>
         </div>
-      </CardContent>
-    </Card>
-  )
+      </div>
+
+      <div className="flex flex-wrap gap-2 mt-4">
+        {project.technologies.map((tech) => (
+          <Badge key={tech} variant="secondary" className="text-xs">
+            {tech}
+          </Badge>
+        ))}
+      </div>
+
+      <div className="flex items-center text-sm text-success font-medium mt-4">
+        <Trophy size={16} className="mr-2" />
+        {project.metrics}
+      </div>
+    </CardContent>
+  </Card>
+);
 
   return (
     <>
