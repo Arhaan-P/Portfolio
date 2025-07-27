@@ -381,7 +381,7 @@ export default function Portfolio() {
                   </Badge>
                   <Badge variant="secondary" className="px-4 py-2 text-sm glass">
                     <Users size={16} className="mr-2" />
-                    10,000+ App Users
+                    Hackathon Runner Up
                   </Badge>
                 </div>
               </div>
