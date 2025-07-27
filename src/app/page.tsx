@@ -472,7 +472,7 @@ export default function Portfolio() {
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">Proven Impact</h3>
                       <p className="text-muted-foreground">
-                        Built an that got 300+ users within hours of beta testing, won competitive hackathons, and contributed 
+                        Built an app that got 300+ users within hours of beta testing, won competitive hackathons, and contributed 
                         to AI research at leading hospitality companies. Demonstrated ability to translate 
                         technical skills into measurable business value.
                       </p>
@@ -492,7 +492,7 @@ export default function Portfolio() {
               </div>
 
               <div className="max-w-4xl mx-auto">
-                {experience.map((exp, index) => (
+                {experience.map((exp) => (
                   <Card key={exp.id} className="border-l-4 border-l-primary shadow-lg hover:shadow-xl transition-all duration-300 mb-8 glass">
                     <CardHeader>
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -599,7 +599,7 @@ export default function Portfolio() {
                     color: "destructive",
                     skills: ["Git", "Docker", "AWS", "Figma"]
                   }
-                ].map((category, index) => (
+                ].map((category) => (
                   <Card key={category.title} className="text-center hover:shadow-lg transition-all duration-300 hover-lift glass animate-scale-in">
                     <CardHeader>
                       <div className={`bg-${category.color}/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}>
@@ -685,7 +685,7 @@ export default function Portfolio() {
           <section id="contact" className="py-20 bg-gradient-to-br from-card to-muted text-foreground" aria-label="Contact section">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16 animate-fade-in">
-                <h2 className="text-4xl font-bold mb-4">Let's Connect</h2>
+                <h2 className="text-4xl font-bold mb-4">Let&apos;s Connect</h2>
                 <p className="text-xl text-muted-foreground">
                   Ready to collaborate on innovative projects or discuss opportunities
                 </p>
@@ -695,8 +695,8 @@ export default function Portfolio() {
                 <div className="animate-slide-in-left">
                   <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
                   <p className="text-muted-foreground mb-8">
-                    I'm always excited to work on challenging projects and explore new opportunities in AI, 
-                    robotics, and full-stack development. Let's build something amazing together!
+                    I&apos;m always excited to work on challenging projects and explore new opportunities in AI, 
+                    robotics, and full-stack development. Let&apos;s build something amazing together!
                   </p>
 
                   <div className="space-y-4">
