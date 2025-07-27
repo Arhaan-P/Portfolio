@@ -135,6 +135,7 @@ export default function Portfolio() {
       metrics: "Expert-Level Analysis",
       status: "Completed",
       image: "/images/promptly.png",
+      link: "https://promptly-analyzer.streamlit.app/",
       problem: "Users struggle with the complex art of prompt writing for AI models, often receiving suboptimal responses due to unclear, vague, or poorly structured prompts.",
       approach: "Built a modular and scalable web application using Python and Streamlit, integrating Google Gemini API for intelligent analysis with features like validation, caching, and performance monitoring.",
       outcome: "Transformed prompt writing into a simple, interactive process, providing users with instant expert-level feedback to significantly improve their AI interactions and response quality."
