@@ -472,7 +472,7 @@ export default function Portfolio() {
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">Proven Impact</h3>
                       <p className="text-muted-foreground">
-                        Built applications serving 10,000+ users, won competitive hackathons, and contributed 
+                        Built an that got 300+ users within hours of beta testing, won competitive hackathons, and contributed 
                         to AI research at leading hospitality companies. Demonstrated ability to translate 
                         technical skills into measurable business value.
                       </p>
